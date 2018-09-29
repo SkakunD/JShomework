@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex8</title>
+</head>
+<body>
+    <script>
+        function power(val,pow) {//задаем две переменные число и степень
+            if (pow==1){//условие для случая когда степень будет равна 1
+                return val;
+            } else {//условие иначе если степень пока не равна 1 то возвращаем значние число умноженое на функцию числа с уменьшеной степнью на 1
+                return val*power(val,pow-1);
+            };
+            
+        };
+        var val = parseInt(prompt("Введите число которое хотите возвести в степень: "));//задаем число через prompt
+        var pow = parseInt(prompt("Введите значение степени: "));//задаем степень через prompt
+        alert(power(val,pow));// команда вывода значения функции
+    </script>
+</body>
+</html>
