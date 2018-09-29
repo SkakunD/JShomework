@@ -22,10 +22,38 @@
             var result = a / b;
             return result;            
         };    
-    alert(summ(5,6));//ответы с уже введенными заранее числами.
-    alert(razn(5,6));
-    alert(proiz(5,6));
-    alert(del(5,4));
+    //alert(summ(5,6));//ответы с уже введенными заранее числами.
+    //alert(razn(5,6));
+    //alert(proiz(5,6));
+    //alert(del(5,4));
+    //Шестое задание
+    var a = parseInt(prompt("Приветствуем в нашем первом калькуляторе,\n введите первое число: "));
+    var b = parseInt(prompt("Введите второе число: "));
+    var operation = prompt("Введите операцию: сложение - s\n вычитание - r\n умножение - p\n деление - d. ");
+    alert(mathOperation(a,b,operation));
+        function mathOperation(a,b,operation) {
+            switch (operation) {
+                case "s":
+                alert(summ(a,b));
+                    break;
+                case "r":
+                alert(razn(a,b));
+                    break;
+                case "p":
+                alert(proiz(a,b));
+                    break;
+                case "d":
+                alert(del(a,b));
+                    break;
+            
+                default:
+                alert("Некорректный ввод!!!");
+                    break;
+            };
+            
+        };
+       
+    
     </script>
 </body>
 </html>
