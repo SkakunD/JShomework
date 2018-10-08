@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+    function countBasketPrice(arr) {//создаем название функции
+        var result=0;//создаем переменную суммы
+        var i;//объявляем счетчик
+    
+    for (i = 0; i < arr.length; i++){//задем цикл в котором перебираем все элементы 
+        result += arr[i];//прибавляем к переменной result значения из массива
+        }
+        return result;//возвращаем на место функции значение переменной
+        
+    }
+
+     var arr = [];//создаем массив
+        
+        arr.push(parseInt(prompt("Ведите сумму первого товара: ")));//вводим сумму товара
+        arr.push(parseInt(prompt("Ведите сумму второго товара: ")));//вводим сумму товара
+        arr.push(parseInt(prompt("Ведите сумму третьего товара: ")));//вводим сумму товара
+
+    alert("Сумма ваших покупок: "+countBasketPrice(arr)+" рублей.");//запрашиваем на вывод значение функции от масссива arr
+
+    </script>
+</body>
+</html>
