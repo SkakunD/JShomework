@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style type="text/css">
-        table{
+            table{
             border-collapse: collapse;
             
         }
@@ -13,18 +14,27 @@
         }
         td{
             text-align: center;
-            vertical-align: middle
+            vertical-align: middle;
         }
         .rot{
             transform: rotate(180deg)
         }
+      i{
+        text-shadow: white 1px 1px 0, white -1px -1px 0, 
+                 white -1px 1px 0, white 1px -1px 0;
+      }
+      .w{
+        color:white;
+        text-shadow: black 1px 1px 0, black -1px -1px 0, 
+                 black -1px 1px 0, black 1px -1px 0;
+      }
     </style>
 </head>
 <body>
-    <div class="chessdesk">
+    <!--div class="chessdesk">
         
         
-    </div>
+    </div>-->
        
            
        <script>
@@ -32,6 +42,9 @@
       
         var letter = ["A","B","C","D","E","F","G","H"]
         var num = [1,2,3,4,5,6,7,8]
+        var fig = ['<i class="fas fa-chess-rook fa-2x"></i>','<i class="fas fa-chess-knight fa-2x"></i>','<i class="fas fa-chess-bishop fa-2x"></i>','<i class="fas fa-chess-king fa-2x"></i>','<i class="fas fa-chess-queen fa-2x"></i>','<i class="fas fa-chess-bishop fa-2x"></i>','<i class="fas fa-chess-knight fa-2x"></i>','<i class="fas fa-chess-rook fa-2x"></i>','<i class="fas fa-chess-pawn fa-2x"></i>']
+        var figw = ['<i class="fas fa-chess-rook fa-2x w"></i>','<i class="fas fa-chess-knight fa-2x w"></i>','<i class="fas fa-chess-bishop fa-2x w"></i>','<i class="fas fa-chess-king fa-2x w"></i>','<i class="fas fa-chess-queen fa-2x w"></i>','<i class="fas fa-chess-bishop fa-2x w"></i>','<i class="fas fa-chess-knight fa-2x w"></i>','<i class="fas fa-chess-rook fa-2x w"></i>','<i class="fas fa-chess-pawn fa-2x w"></i>']
+        
         var desk = "<table class='chess' border='1' width='600px' height='600px'>";
         var y = 1;
         for (y;y<=10;y++){
@@ -49,7 +62,47 @@
             else if(i>=2&&i<=9){
             desk += "<td width = '60px'>"+letter[i-2]+"</td>";}}
                 desk += "</tr><tr>"}
-        else if(y%2==0&&y>1&&y<10)
+          else if(y==2){
+             for (i=1; i<=10; i++){
+                                    if(i==1)
+                                    {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
+                                    else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
+                                    else if (i%2==0&&i>1&&i<10){  desk += "<td width = '60px' class='black'>"+fig[i-2]+"</td>";}
+                                    else {  desk += "<td width = '60px'>"+fig[i-2]+"</td>";}
+                                }
+                desk += "</tr>";
+          }
+          else if(y==3){
+             for (i=1; i<=10; i++){
+                                    if(i==1)
+                                    {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
+                                    else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
+                                    else if (!(i%2==0)&&i>1&&i<10){  desk += "<td width = '60px' class='black'>"+fig[8]+"</td>";}
+                                    else {  desk += "<td width = '60px'>"+fig[8]+"</td>";}
+                                }
+                desk += "</tr>";
+          }
+            else if(y==8){
+             for (i=1; i<=10; i++){
+                                    if(i==1)
+                                    {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
+                                    else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
+                                    else if (i%2==0&&i>1&&i<10){  desk += "<td width = '60px' class='black'>"+figw[8]+"</td>";}
+                                    else {  desk += "<td width = '60px'>"+figw[8]+"</td>";}
+                                }
+                desk += "</tr>";
+          }
+           else if(y==9){
+             for (i=1; i<=10; i++){
+                                    if(i==1)
+                                    {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
+                                    else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
+                                    else if (!(i%2==0)&&i>1&&i<10){  desk += "<td width = '60px' class='black'>"+figw[i-2]+"</td>";}
+                                    else {  desk += "<td width = '60px'>"+figw[i-2]+"</td>";}
+                                }
+                desk += "</tr>";
+          }
+        else if(y%2==0&&y>3&&y<9)
         {
             for (i=1; i<=10; i++){
                                     if(i==1)
@@ -74,7 +127,7 @@
             
         }
         
-        document.body.appendChildren(desk);
+        document.write(desk);
     </script>
 </body>
 </html>
