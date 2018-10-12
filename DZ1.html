@@ -21,7 +21,15 @@
     </style>
 </head>
 <body>
-    <script>
+    <div class="chessdesk">
+        
+        
+    </div>
+       
+           
+       <script>
+           
+      
         var letter = ["A","B","C","D","E","F","G","H"]
         var num = [1,2,3,4,5,6,7,8]
         var desk = "<table class='chess' border='1' width='600px' height='600px'>";
@@ -41,21 +49,32 @@
             else if(i>=2&&i<=9){
             desk += "<td width = '60px'>"+letter[i-2]+"</td>";}}
                 desk += "</tr><tr>"}
-        else
+        else if(y%2==0&&y>1&&y<10)
         {
             for (i=1; i<=10; i++){
                                     if(i==1)
                                     {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
                                     else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
-                                    else{  desk += "<td width = '60px'></td>";}
+                                    else if (i%2==0&&i>1&&i<10){  desk += "<td width = '60px' class='black'></td>";}
+                                    else {  desk += "<td width = '60px'></td>";}
                                 }
                 desk += "</tr>";
               }
+            else if(!y%2==0&&y>1&&y<10)
+        {
+            for (i=1; i<=10; i++){
+                                    if(i==1)
+                                    {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
+                                    else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
+                                    else if (!(i%2==0)&&i>1&&i<10){  desk += "<td width = '60px' class='black'></td>";}
+                                    else {  desk += "<td width = '60px'></td>";}
+                                }
+                desk += "</tr>";
+              }
+            
         }
-        var glob = document.getElementsByClassName('chess');
-        console.log(glob);
-        document.write(desk);
         
+        document.body.appendChildren(desk);
     </script>
 </body>
 </html>
