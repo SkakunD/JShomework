@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        table{
+            border-collapse: collapse;
+            
+        }
+        .black{
+            background-color: black;
+        }
+        td{
+            text-align: center;
+            vertical-align: middle
+        }
+        .rot{
+            transform: rotate(180deg)
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var letter = ["A","B","C","D","E","F","G","H"]
+        var num = [1,2,3,4,5,6,7,8]
+        var desk = "<table class='chess' border='1' width='600px' height='600px'>";
+        var y = 1;
+        for (y;y<=10;y++){
+        desk = desk + "<tr height = '60px' >"
+        var i = 1;   
+        if(y==1){
+        for (i; i<=10; i++){
+            if(i==1||i==10){desk += "<td width = '60px'></td>";}
+            else if(i>=2&&i<=9){
+            desk += "<td width = '60px' class='rot'>"+letter[i-2]+"</td>";}}
+                desk += "</tr><tr>";
+        } else if(y==10){
+        for (i; i<=10; i++){
+            if(i==1||i==10){desk += "<td width = '60px'></td>";}
+            else if(i>=2&&i<=9){
+            desk += "<td width = '60px'>"+letter[i-2]+"</td>";}}
+                desk += "</tr><tr>"}
+        else
+        {
+            for (i=1; i<=10; i++){
+                                    if(i==1)
+                                    {desk += "<td width = '60px'>"+num[y-2]+"</td>";}
+                                    else if(i==10){desk += "<td width = '60px' class='rot'>"+num[y-2]+"</td>";}
+                                    else{  desk += "<td width = '60px'></td>";}
+                                }
+                desk += "</tr>";
+              }
+        }
+        var glob = document.getElementsByClassName('chess');
+        console.log(glob);
+        document.write(desk);
+        
+    </script>
+</body>
+</html>
