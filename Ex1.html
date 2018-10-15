@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #small{
+            width: 1400px;
+            position: relative;
+            transition: all ease 1s;
+            /*left: 0;*/
+        }
+        img{
+            float: left;
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            
+        }
+        .but{
+            margin: 0 auto;
+            width: 200px;
+            text-align: center
+        }
+        #bord{
+            width: 400px;
+            height: 300px;
+            border: 2px solid red;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .small::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+  <div id="bord" class="small">
+       <div id='small'>
+        <img id="1" src="images/luxfon.jpg" alt="foto">
+        <img id="2" src="images/nikon.jpg" alt="nikon">
+        <img id="3" src="images/pentax.jpg" alt="pentax">
+    </div>
+    </div>
+    <div class="but">
+    <button id="left" >Влево</button>
+    <button id="right">Направо</button>
+    </div>
+    
+    
+    
+    
+    
+    <script>
+    document.getElementById('left').onclick = slideLeft;
+        var left = 0;
+        function slideLeft(){
+            var gal = document.getElementById('small');
+            left=left-400;
+            if(left < -800){
+                left = 0;
+            }
+            gal.style.left = left+'px'
+        };
+        
+    document.getElementById('right').onclick = slideRight;
+        var right = 0;
+        function slideRight(){
+            var gal = document.getElementById('small');
+            right=right-400;
+            if(right < -800){
+                right = 0;
+            }
+            gal.style.right = right+'px'
+        }
+        
+        
+        
+    </script>
+</body>
+</html>
